@@ -3,11 +3,11 @@ The Adult Dataset
 
 ## Tasklist Session 2: Data Preprocessing and Feature Engineering
 
-1. Check for missing values in the dataset and handle them [...], it is also important to conduct a thorough check the dataset for noisy data, inconsistencies, and duplicate entries, and to apply the necessary measures.
+1. **(DONE)** Check for missing values in the dataset and handle them [...], it is also important to conduct a thorough check the dataset for noisy data, inconsistencies, and duplicate entries, and to apply the necessary measures.
 
-2. The dataset contains categorical features that need to be converted to numerical values [...] : one-hot encoding, label encoding, and binary encoding. You can identify any additional techniques [...] .
+2. **(DONE)** The dataset contains categorical features that need to be converted to numerical values [...] : one-hot encoding, label encoding, and binary encoding. You can identify any additional techniques [...] .
 
-3. How can you scale the continuous features in your dataset? Consider using techniques such as min-max scaling and normalization.  
+3. **(DONE)** How can you scale the continuous features in your dataset? Consider using techniques such as min-max scaling and normalization.
 
 4. Check for outliers in the dataset features and handle them using appropriate techniques like removing outliers, imputation, winsorization, transformation, and bin binning.
 
