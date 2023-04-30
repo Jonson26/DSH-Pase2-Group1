@@ -10,3 +10,5 @@ The Adult Dataset
 5. Analyse the dataset and determine if the target variable 'class' is balanced or not. If it is not balanced, you need to balance it using appropriate techniques like oversampling or under-sampling.
 6. Analyse the dataset and create new features/derived features. [...] This can help the model better capture patterns.
 7. Identify the relevant features that are likely to have a significant impact on the target variable and the irrelevant or redundant features from the dataset that may not contribute much to the prediction task.
+
+**Todo:** Tasks 4, 6 and 7. Use the code to produce new datasets.
