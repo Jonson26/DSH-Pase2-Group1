@@ -1,6 +1,23 @@
 ###
 #
-# This code is a draft, based on the notebook for Session 2. It produces only one dataset and skips Tasks 3 and 6.
+# This code is based on the notebook for Session 2.
+#
+# This python file produces 3 CSV files by performing the following steps:
+#
+# Cleaning :
+# (1) Impute missing values (2) Remove duplicates
+#
+# Encoding :
+# (1) Drop 1 feature (2) Label-encode class (3) One-hot-encode 6 features (4) Target-encode 1 feature
+#
+# Outlier handling :
+# (1) Winsorize 1 feature (2) Bin 1 other feature
+#
+# Balancing :
+# (1) Undersample
+#
+# Scaling :
+# (1) Make a copy with Normalized values (2) Make a copy with Standardized values
 #
 ###
 
@@ -77,7 +94,22 @@ y = df['income']
 rus = RandomUnderSampler(random_state=42)
 X_resampled, y_resampled = rus.fit_resample(X, y)
 resampled_data = pd.concat([X_resampled, y_resampled], axis=1)
-
-# Create new CSV file
 df = pd.DataFrame(resampled_data)
-df.to_csv('adult_improv.csv', index=False)
+
+# Select columns for scaling
+continuous_cols = ['age', 'capital-gain', 'capital-loss', 'educational-num', 'fnlwgt', 'hours-per-week']
+
+# Perform normalization on a copy
+minmax_df = df.copy()
+min_max_scaler = MinMaxScaler()
+minmax_df[continuous_cols] = min_max_scaler.fit_transform(minmax_df[continuous_cols])
+
+# Perform standardization on a copy
+standard_df = df.copy()
+standard_scaler = StandardScaler()
+standard_df[continuous_cols] = standard_scaler.fit_transform(standard_df[continuous_cols])
+
+# Create unscaled CSV
+df.to_csv('adult_preprocessed.csv', index=False)
+minmax_df.to_csv('adult_preprocessed_normalized.csv', index=False)
+standard_df.to_csv('adult_preprocessed_standardized.csv', index=False)
