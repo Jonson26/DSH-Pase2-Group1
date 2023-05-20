@@ -125,20 +125,21 @@ df_nocap.drop(columns=['capital-gain', 'capital-loss'],inplace=True)
 
 # Select columns for scaling
 continuous_cols = ['age', 'capital-gain', 'capital-loss', 'educational-num', 'fnlwgt', 'hours-per-week']
+continuous_cols_nocap = ['age', 'educational-num', 'fnlwgt', 'hours-per-week']
 
 # Create normalized versions of the two copies
 min_max_scaler = MinMaxScaler()
 minmax_df = df.copy()
 minmax_df_nocap = df_nocap.copy()
 minmax_df[continuous_cols] = min_max_scaler.fit_transform(minmax_df[continuous_cols])
-minmax_df_nocap[continuous_cols] = min_max_scaler.fit_transform(minmax_df_nocap[continuous_cols])
+minmax_df_nocap[continuous_cols_nocap] = min_max_scaler.fit_transform(minmax_df_nocap[continuous_cols_nocap])
 
 # Create standardized versions of the two copies
 standard_scaler = StandardScaler()
 standard_df = df.copy()
 standard_df_nocap = df_nocap.copy()
 standard_df[continuous_cols] = standard_scaler.fit_transform(standard_df[continuous_cols])
-standard_df_nocap[continuous_cols] = standard_scaler.fit_transform(standard_df_nocap[continuous_cols])
+standard_df_nocap[continuous_cols_nocap] = standard_scaler.fit_transform(standard_df_nocap[continuous_cols_nocap])
 
 
 # Create CSV for each copy of the dataframe

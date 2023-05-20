@@ -80,7 +80,7 @@ df['hours-per-week'] = winsorize(df_old['hours-per-week'], limits=(0.09, 0.03))
 # Create bins for "age"
 minAge = df['age'].min()
 maxAge = df['age'].max()
-bins = np.linspace(minAge,maxAge,4)
+bins = [17, 25, 50, 90]
 
 # Define labels for the bins
 labels = [0, 1, 2]
